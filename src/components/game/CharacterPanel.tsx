@@ -7,8 +7,8 @@ import { Rank, RANK_XP_REQUIREMENTS, RANKS } from '@/lib/game-data';
 const Character3D = dynamic(() => import('./Character3D'), {
   ssr: false,
   loading: () => (
-    <div className="w-32 h-40 flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground">Loading...</div>
+    <div className="w-full h-64 flex items-center justify-center">
+      <div className="animate-pulse text-muted-foreground">Loading 3D Model...</div>
     </div>
   ),
 });
@@ -60,11 +60,11 @@ export function CharacterPanel({
     <div className="game-panel p-4 flex flex-col items-center gap-4 h-full">
       <h2 className="text-lg font-bold gold-text">Your Character</h2>
       
-      {/* 3D Character */}
-      <div className="relative w-40 h-48 float-animation">
+      {/* 3D Character - Larger container for better visibility */}
+      <div className="relative w-full h-64 float-animation rounded-lg overflow-hidden border border-border/30">
         <Character3D 
           modelPath="/assets/models/DancingMaraschinoStep.fbx"
-          scale={0.008}
+          scale={0.01}
           className="w-full h-full"
         />
       </div>
@@ -122,7 +122,7 @@ export function CharacterPanel({
         </div>
       </div>
 
-      {/* Horde Logo */}
+      {/* Footer */}
       <div className="mt-auto pt-4 text-center">
         <p className="text-xs text-muted-foreground italic">
           &quot;For the Horde!&quot;

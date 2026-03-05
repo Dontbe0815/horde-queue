@@ -352,6 +352,7 @@
   border: 1px solid #5C2A1A;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .xp-fill {
@@ -359,6 +360,17 @@
   height: 100%;
   transition: width 0.5s ease-out;
   box-shadow: 0 0 10px rgba(201, 163, 53, 0.5);
+  position: relative;
+}
+
+.xp-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
 }
 
 .queue-display {
