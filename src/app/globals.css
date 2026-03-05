@@ -1,0 +1,550 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  
+  /* Horde Theme Colors */
+  --horde-red: #8C1616;
+  --horde-dark-red: #5C0A0A;
+  --horde-brown: #3D1A0A;
+  --horde-gold: #C9A335;
+  --horde-orange: #D47A0A;
+  --alliance-blue: #0A4A8C;
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #1a0a0a;
+  --foreground: #f5e6d3;
+  --card: #2a1515;
+  --card-foreground: #f5e6d3;
+  --popover: #2a1515;
+  --popover-foreground: #f5e6d3;
+  --primary: #8C1616;
+  --primary-foreground: #f5e6d3;
+  --secondary: #3D1A0A;
+  --secondary-foreground: #C9A335;
+  --muted: #2a1515;
+  --muted-foreground: #a08060;
+  --accent: #C9A335;
+  --accent-foreground: #1a0a0a;
+  --destructive: #8C1616;
+  --border: #5C2A1A;
+  --input: #3D1A0A;
+  --ring: #C9A335;
+  --chart-1: #8C1616;
+  --chart-2: #C9A335;
+  --chart-3: #D47A0A;
+  --chart-4: #5C0A0A;
+  --chart-5: #3D1A0A;
+  --sidebar: #1a0a0a;
+  --sidebar-foreground: #f5e6d3;
+  --sidebar-primary: #8C1616;
+  --sidebar-primary-foreground: #f5e6d3;
+  --sidebar-accent: #3D1A0A;
+  --sidebar-accent-foreground: #C9A335;
+  --sidebar-border: #5C2A1A;
+  --sidebar-ring: #C9A335;
+}
+
+.dark {
+  --background: #1a0a0a;
+  --foreground: #f5e6d3;
+  --card: #2a1515;
+  --card-foreground: #f5e6d3;
+  --popover: #2a1515;
+  --popover-foreground: #f5e6d3;
+  --primary: #8C1616;
+  --primary-foreground: #f5e6d3;
+  --secondary: #3D1A0A;
+  --secondary-foreground: #C9A335;
+  --muted: #2a1515;
+  --muted-foreground: #a08060;
+  --accent: #C9A335;
+  --accent-foreground: #1a0a0a;
+  --destructive: #8C1616;
+  --border: #5C2A1A;
+  --input: #3D1A0A;
+  --ring: #C9A335;
+  --chart-1: #8C1616;
+  --chart-2: #C9A335;
+  --chart-3: #D47A0A;
+  --chart-4: #5C0A0A;
+  --chart-5: #3D1A0A;
+  --sidebar: #1a0a0a;
+  --sidebar-foreground: #f5e6d3;
+  --sidebar-primary: #8C1616;
+  --sidebar-primary-foreground: #f5e6d3;
+  --sidebar-accent: #3D1A0A;
+  --sidebar-accent-foreground: #C9A335;
+  --sidebar-border: #5C2A1A;
+  --sidebar-ring: #C9A335;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Cinzel', 'Georgia', serif;
+  }
+}
+
+/* Custom Animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(140, 22, 22, 0.5), 0 0 20px rgba(201, 163, 53, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(140, 22, 22, 0.8), 0 0 40px rgba(201, 163, 53, 0.5);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes queueJump {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-2deg); }
+  75% { transform: translateY(-5px) rotate(2deg); }
+}
+
+@keyframes axeSwing {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-30deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(30deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes achievementPop {
+  0% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(var(--drift, 20px)) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes scannerMove {
+  0%, 100% { left: 0%; }
+  50% { left: 100%; }
+}
+
+@keyframes dangerPulse {
+  0%, 100% { 
+    background-color: rgba(140, 22, 22, 0.3);
+    box-shadow: inset 0 0 30px rgba(140, 22, 22, 0.5);
+  }
+  50% { 
+    background-color: rgba(140, 22, 22, 0.6);
+    box-shadow: inset 0 0 50px rgba(140, 22, 22, 0.8);
+  }
+}
+
+/* Utility Classes */
+.horde-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+.sparkle {
+  animation: sparkle 1s ease-in-out infinite;
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.queue-jump {
+  animation: queueJump 0.3s ease-in-out;
+}
+
+.axe-swing {
+  animation: axeSwing 0.3s ease-in-out;
+}
+
+.achievement-pop {
+  animation: achievementPop 0.6s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a0a0a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8C1616, #5C0A0A);
+  border-radius: 4px;
+  border: 1px solid #3D1A0A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a01c1c, #6C0A0A);
+}
+
+/* Game Specific Styles */
+.game-panel {
+  background: linear-gradient(135deg, rgba(42, 21, 21, 0.95), rgba(26, 10, 10, 0.98));
+  border: 2px solid #5C2A1A;
+  border-radius: 12px;
+  box-shadow: 
+    0 0 20px rgba(140, 22, 22, 0.3),
+    inset 0 1px 0 rgba(201, 163, 53, 0.1);
+}
+
+.horde-button {
+  background: linear-gradient(180deg, #8C1616 0%, #5C0A0A 100%);
+  border: 2px solid #C9A335;
+  border-radius: 8px;
+  color: #f5e6d3;
+  font-family: 'Cinzel', 'Georgia', serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.horde-button:hover {
+  background: linear-gradient(180deg, #a01c1c 0%, #6C0A0A 100%);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 15px rgba(201, 163, 53, 0.3);
+}
+
+.horde-button:active {
+  transform: translateY(1px);
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.horde-button:disabled {
+  background: linear-gradient(180deg, #3D1A0A 0%, #2a1515 100%);
+  border-color: #5C2A1A;
+  color: #6a5040;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.xp-bar {
+  background: linear-gradient(90deg, #2a1515, #1a0a0a);
+  border: 1px solid #5C2A1A;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  background: linear-gradient(90deg, #8C1616, #C9A335);
+  height: 100%;
+  transition: width 0.5s ease-out;
+  box-shadow: 0 0 10px rgba(201, 163, 53, 0.5);
+}
+
+.queue-display {
+  font-family: 'Courier New', monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #C9A335;
+  text-shadow: 0 0 10px rgba(201, 163, 53, 0.5);
+}
+
+.gold-text {
+  color: #C9A335;
+  text-shadow: 0 0 5px rgba(201, 163, 53, 0.3);
+}
+
+.red-text {
+  color: #8C1616;
+  text-shadow: 0 0 5px rgba(140, 22, 22, 0.5);
+}
+
+.danger-overlay {
+  animation: dangerPulse 0.5s ease-in-out;
+}
+
+.spy-alert {
+  background: radial-gradient(circle, rgba(140, 22, 22, 0.8), rgba(26, 10, 10, 0.9));
+  border: 3px solid #8C1616;
+  animation: shake 0.3s ease-in-out infinite;
+}
+
+.axe-timing-bar {
+  background: linear-gradient(90deg, 
+    #5C0A0A 0%, 
+    #8C1616 20%, 
+    #C9A335 45%, 
+    #D47A0A 55%, 
+    #8C1616 80%, 
+    #5C0A0A 100%
+  );
+  height: 20px;
+  border-radius: 10px;
+  border: 2px solid #C9A335;
+  position: relative;
+  overflow: hidden;
+}
+
+.axe-indicator {
+  width: 4px;
+  height: 100%;
+  background: #f5e6d3;
+  position: absolute;
+  top: 0;
+  box-shadow: 0 0 10px #f5e6d3;
+}
+
+.axe-target-zone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: rgba(201, 163, 53, 0.3);
+  border-left: 2px solid #C9A335;
+  border-right: 2px solid #C9A335;
+}
+
+.achievement-card {
+  background: linear-gradient(135deg, #2a1515, #1a0a0a);
+  border: 1px solid #5C2A1A;
+  border-radius: 8px;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.achievement-card.unlocked {
+  border-color: #C9A335;
+  box-shadow: 0 0 10px rgba(201, 163, 53, 0.3);
+}
+
+.achievement-card.locked {
+  opacity: 0.5;
+  filter: grayscale(50%);
+}
+
+.quote-scroll {
+  background: url('/assets/images/scroll.png') center/cover no-repeat;
+  padding: 20px 30px;
+  text-align: center;
+  font-style: italic;
+}
+
+.sweet-spot {
+  position: absolute;
+  width: 60px;
+  height: 100%;
+  background: rgba(201, 163, 53, 0.4);
+  border-left: 2px solid #C9A335;
+  border-right: 2px solid #C9A335;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Particle effects container */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #C9A335, transparent);
+  border-radius: 50%;
+  animation: particleFloat 1.5s ease-out forwards;
+}
+
+/* Screen effects */
+.screen-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 200;
+}
+
+.screen-flash.active {
+  animation: flash 0.3s ease-out;
+}
+
+@keyframes flash {
+  0% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* Rank badges */
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #3D1A0A, #2a1515);
+  border: 1px solid #C9A335;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: #C9A335;
+}
+
+/* Status message styling */
+.status-message {
+  background: linear-gradient(90deg, transparent, rgba(140, 22, 22, 0.2), transparent);
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #a08060;
+  text-align: center;
+}
+
+/* Mini game containers */
+.minigame-container {
+  background: linear-gradient(180deg, rgba(42, 21, 21, 0.8), rgba(26, 10, 10, 0.95));
+  border: 2px solid #5C2A1A;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .queue-display {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .queue-display {
+    font-size: 1.5rem;
+  }
+  
+  .game-panel {
+    padding: 12px;
+  }
+}
